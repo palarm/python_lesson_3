@@ -1,3 +1,4 @@
+import re
 import pymorphy2
 
 
@@ -65,7 +66,7 @@ print(draft_line)
 # print(clear_list)
 
 # Вариант 1.4 с использованием findall()
-import re
+
 clear_list = []
 
 for string in draft_line:
@@ -82,7 +83,7 @@ print(clear_list)
 # print(lower_list)
 
 # Вариант 3.2 через map с использованием lambda
-lower_list = []
+#lower_list = []
 
 lower_list = list(map(lambda x: x.lower(), clear_list))
 
@@ -90,7 +91,7 @@ print(lower_list)
 
 # 4) получить из list пункта 3 dict, ключами которого являются слова, а значениями их количество появлений в тексте;
 
-dict_from_lower_list = {}
+#dict_from_lower_list = {}
 dict_from_lower_list = {x: lower_list.count(x) for x in lower_list}
 
 print(dict_from_lower_list)
@@ -101,7 +102,7 @@ list_of_tuple_by_item = list(dict_from_lower_list.items())
 list_of_tuple_by_item.sort(key=lambda i: i[1], reverse=True)
 
 print(list_of_tuple_by_item[:5])
-wer = set(dict_from_lower_list)
+print(len(set(dict_from_lower_list)))
 
 # PRO:
 # 6) выполнить light с условием: в пункте 2 дополнительно к приведению к нижнему регистру выполнить лемматизацию.
